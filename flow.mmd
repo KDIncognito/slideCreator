@@ -1,55 +1,24 @@
 flowchart TD
-    subgraph Phase1["Concept Extraction"]
-        direction TB
-        Doc[Thesis Document] --> Extract["Extract Concepts:
-        • Research Question
-        • Methods
-        • Findings
-        • Framework"]
+    subgraph Input["Input Processing"]
+        PDF[PDF Document] --> Extract[Extract Text]
+        Extract --> Clean[Clean Text]
     end
     
-    subgraph Phase2["Structure Planning"]
-        direction TB
-        Extract --> Outline["Create Outline:
-        • Sections
-        • Transitions
-        • Organization"]
+    subgraph Analysis["Content Analysis"]
+        Clean --> Topics[Topic Modeling]
+        Topics --> Structure[Document Structure]
+        Structure --> Elements[Class Elements]
     end
     
-    subgraph Phase3["Content Generation"]
-        direction TB
-        Outline --> Content["Generate Content:
-        • Bullet Points
-        • Explanations
-        • Citations"]
-        
-        Content --> NeedImage{"Needs
-        Image?"}
-        
-        NeedImage -->|Yes| Generate["Generate Image Prompt:
-        • Contextual Description
-        • Style Specifications
-        • Technical Details"]
-        
-        NeedImage -->|No| NextContent["Proceed to
-        Next Section"]
-        
-        Generate --> NextContent
-    end
-    
-    subgraph Phase4["Finalization"]
-        direction TB
-        NextContent --> Final["Compile Presentation:
-        • Organize Slides
-        • Add Images
-        • Verify Flow"]
+    subgraph GPT["GPT-4 Processing"]
+        Elements --> Format[Format for GPT-4]
+        Format --> Process[Process with GPT-4]
+        Process --> Output[Structured Output]
     end
     
     %% Styling
-    classDef phase fill:#f5f5f5,stroke:#333,stroke-width:2px,color:#000000
-    classDef decision fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000000
-    classDef process fill:#ffffff,stroke:#666,stroke-width:1px,color:#000000
+    classDef process fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000000
+    classDef group fill:#f5f5f5,stroke:#333,stroke-width:2px,color:#000000
     
-    class Phase1,Phase2,Phase3,Phase4 phase
-    class NeedImage decision
-    class Doc,Extract,Outline,Content,Generate,NextContent,Final process
+    class PDF,Extract,Clean,Topics,Structure,Elements,Format,Process,Output process
+    class Input,Analysis,GPT group

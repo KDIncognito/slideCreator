@@ -37,25 +37,14 @@ class gptHandler:
         with open("images/output.png", "wb") as f:
             f.write(image_bytes)
     
-    def llm_handler(self, **kwargs):
+    def llm_handler(self, system, user, material:None):
         """
         Handle the LLM call based on the provided keyword arguments.
         This method dynamically constructs the system and user messages based on the class attributes.
         """
-        if len(kwargs) == 0:
-            raise ValueError("No parameters provided for llm_handler.")
-        
-        system = kwargs.get('system', None)
-        user = kwargs.get('user', None)
-
-        if isinstance(user, dict):
-            user_message = "\n".join([f"{key}= {value}" for key, value in user.items()])
-        else:
-            user_message = user
-
-        if isinstance(system, dict):
-            system_message = "\n".join([f"{key}= {value}" for key, value in system.items()])
-        else:
-            system_message = system
-
-        return self._llm_call(system_message, user_message)
+        # "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}
+        if material is not None:
+            with open(material, "rb") as file:
+                image_data = base64.b64encode(file.read()).decode('utf-8')
+                user = user.format(image=f"""'image_url': {{'url': 'data:image/jpeg;base64,{image_data}'}} """)
+        return self._llm_call(system, user)

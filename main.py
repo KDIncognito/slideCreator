@@ -1,23 +1,52 @@
+import sys
+
 from documentHandling import ReadDoc, pptHandling
-from gpt import gptHandler
-gp = gptHandler()
+from gpt import gptHandler, gptContext
 
-kwargs = {"system": "You are a helpful assistant that creates PowerPoint presentations.",
-    "user": {'breakdown':'this document was brokendown','original':'this document is the original source.'}}
+def creation_of_slides():
+    context = gptContext()
+    gp = gptHandler()
+    ## Check for malicious content
+    
+    is_malicious = gp.llm_handler(
+        system=context.malicious.system,
+        user=context.malicious.user,
+        material = "images/group_1.png"
+    )
+    print(is_malicious)
+    # Breakdown the given document into individual concepts
 
-gp.llm_handler(**kwargs)
-# Function to read contents of the document file.
+    # Convert the concepts into a slide format
 
-# Breakdown the given document into individual concepts
+    # Put it all together.
 
-# Establish the flow between the concepts
+    # Save the file as a pptx file.
 
-# Convert the concepts into a slide format
+    # Upload a copy to AWS
 
-# Create image prompts for for the slides that may require images
+def execute_all():
+    # Check if pdf path is provided
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <pdf_path>")
+        sys.exit(1)
 
-# Put it all together.
+    # Get the pdf path from command line
+    pdf_path = sys.argv[1]
+    
+    # Check if the provided path ends with .pdf
+    if not pdf_path.lower().endswith('.pdf'):
+        raise ValueError("The provided file must be a PDF.")
 
-# Save the file as a pptx file.
+    creation_of_slides()
+    exit(1)
 
-# Upload a copy to AWS
+    # Initialize the ReadDoc instance
+    rd = ReadDoc(1)
+    try:
+        rd.convert_pdf_to_images(pdf_path, dpi=300)
+    except Exception as e:
+        print(f"Error converting PDF to images: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    execute_all()

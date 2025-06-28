@@ -1,0 +1,37 @@
+2025-06-27 19:47:49,655 - INFO - Output directory: images
+2025-06-27 19:47:49,655 - INFO - Using existing output directory: images
+2025-06-27 19:47:49,730 - INFO - Starting conversion of PDF: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-06-27 19:47:49,913 - INFO - Processing group 1 with pages [0, 1, 2]
+2025-06-27 19:47:54,260 - INFO - Saving image to: images/group_1.png
+2025-06-27 19:47:54,974 - INFO - Successfully saved image: images/group_1.png
+2025-06-27 19:47:54,974 - INFO - Processing group 2 with pages [3, 4, 5]
+2025-06-27 19:47:59,143 - INFO - Saving image to: images/group_2.png
+2025-06-27 19:48:00,112 - INFO - Successfully saved image: images/group_2.png
+2025-06-27 19:48:00,112 - INFO - Processing group 3 with pages [6, 7, 8]
+2025-06-27 19:48:03,611 - INFO - Saving image to: images/group_3.png
+2025-06-27 19:48:04,320 - INFO - Successfully saved image: images/group_3.png
+2025-06-27 19:48:04,321 - INFO - Processing group 4 with pages [9, 10, 11]
+2025-06-27 19:48:07,657 - INFO - Saving image to: images/group_4.png
+2025-06-27 19:48:08,396 - INFO - Successfully saved image: images/group_4.png
+2025-06-27 19:48:08,396 - INFO - Processing group 5 with pages [12, 13, 14]
+2025-06-27 19:48:11,964 - INFO - Saving image to: images/group_5.png
+2025-06-27 19:48:12,732 - INFO - Successfully saved image: images/group_5.png
+2025-06-27 19:48:12,732 - INFO - Processing group 6 with pages [15, 16]
+2025-06-27 19:48:14,787 - INFO - Saving image to: images/group_6.png
+2025-06-27 19:48:15,215 - INFO - Successfully saved image: images/group_6.png
+2025-06-27 19:48:15,242 - INFO - Conversion completed. Generated 6 images
+2025-06-27 19:59:42,362 - INFO - Output directory: images
+2025-06-27 19:59:42,363 - INFO - Using existing output directory: images
+2025-06-27 19:59:58,698 - INFO - Output directory: images
+2025-06-27 19:59:58,699 - INFO - Using existing output directory: images
+2025-06-27 20:01:45,735 - INFO - Output directory: images
+2025-06-27 20:01:45,736 - INFO - Using existing output directory: images
+2025-06-27 20:03:20,752 - INFO - Output directory: images
+2025-06-27 20:03:20,753 - INFO - Using existing output directory: images
+2025-06-27 20:03:43,860 - INFO - Output directory: images
+2025-06-27 20:03:43,861 - INFO - Using existing output directory: images
+2025-06-27 20:08:37,151 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-27 20:08:37,154 - INFO - Retrying request to /chat/completions in 0.473967 seconds
+2025-06-27 20:08:40,451 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-27 20:08:40,451 - INFO - Retrying request to /chat/completions in 0.819910 seconds
+2025-06-27 20:08:43,871 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
