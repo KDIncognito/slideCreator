@@ -1,28 +1,11 @@
 import sys
+from logging_config import get_logger, get_calling_module_name
 
-from documentHandling import ReadDoc, pptHandling
-from gpt import gptHandler, gptContext
+from documentHandling import ReadDoc
 
-def creation_of_slides():
-    context = gptContext()
-    gp = gptHandler()
-    ## Check for malicious content
-    
-    is_malicious = gp.llm_handler(
-        system=context.malicious.system,
-        user=context.malicious.user,
-        material = "images/group_1.png"
-    )
-    print(is_malicious)
-    # Breakdown the given document into individual concepts
-
-    # Convert the concepts into a slide format
-
-    # Put it all together.
-
-    # Save the file as a pptx file.
-
-    # Upload a copy to AWS
+name = get_calling_module_name()
+log = get_logger(name)
+log.info("done; ")
 
 def execute_all():
     # Check if pdf path is provided
@@ -37,16 +20,18 @@ def execute_all():
     if not pdf_path.lower().endswith('.pdf'):
         raise ValueError("The provided file must be a PDF.")
 
-    creation_of_slides()
-    exit(1)
+    # creation_of_slides()
+    # exit(1)
 
     # Initialize the ReadDoc instance
-    rd = ReadDoc(1)
+    rd = ReadDoc()
     try:
-        rd.convert_pdf_to_images(pdf_path, dpi=300)
+        conv = rd.extract_all_text_simple(pdf_path)
     except Exception as e:
         print(f"Error converting PDF to images: {e}")
         sys.exit(1)
+    
 
 if __name__ == "__main__":
+
     execute_all()

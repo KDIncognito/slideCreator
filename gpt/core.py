@@ -1,6 +1,6 @@
 from openai import OpenAI
 from dotenv import load_dotenv
-import os, base64, requests
+import os, base64
 
 load_dotenv()
 
@@ -31,20 +31,16 @@ class gptHandler:
             prompt=prompt,
             n=1,
             size="1024x1024",
+            output_format="png"
         )
         
-        image_bytes = base64.b64decode(image_response.data[0].b64_json)
-        with open("images/output.png", "wb") as f:
-            f.write(image_bytes)
+        return base64.b64decode(image_response.data[0].b64_json)
+
     
-    def llm_handler(self, system, user, material:None):
+    def llm_handler(self, system, user):
         """
         Handle the LLM call based on the provided keyword arguments.
         This method dynamically constructs the system and user messages based on the class attributes.
         """
         # "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}
-        if material is not None:
-            with open(material, "rb") as file:
-                image_data = base64.b64encode(file.read()).decode('utf-8')
-                user = user.format(image=f"""'image_url': {{'url': 'data:image/jpeg;base64,{image_data}'}} """)
         return self._llm_call(system, user)
