@@ -11,7 +11,7 @@ class handler:
         self.image_directory = "images_and_files/"
         self.gpt_handle = gptHandler()
     
-    def checkMalicious(self):
+    def _IsSafeToUse(self):
         """
         Check to see if the given text is safe to use.
         """
@@ -24,7 +24,7 @@ class handler:
         else:
             raise ValueError(f"The provided text is not safe to use. Please check the content and try again. {mal}")
     
-    def convert_content_to_slides(self):
+    def _convert_content_to_slides(self):
         """ 
         Convert given text into content for slides.
         """
@@ -33,7 +33,7 @@ class handler:
         slide_content = ct.cleanText(slides)
         self.slide_content = json.loads(slide_content)
     
-    def generate_image(self, image_prompt:str=None, filename:str=None):
+    def _generate_image(self, image_prompt:str=None, filename:str=None):
         """
         Generates an image from a text input.
         """
@@ -59,7 +59,7 @@ class handler:
             print(f"An error occurred: {e}")
 
 
-    def get_image_prompt(self):
+    def _get_image_prompt(self):
         """
         For slides that need visuals, generate visuals and save them as image_placeholder_id
         """
@@ -71,7 +71,14 @@ class handler:
                 image_prompt = self.gpt_handle.llm_handler(system = gptContext.generateImagePrompts.system,
                                        user = gptContext.generateImagePrompts.user.format(image_base_txt))
                 image_prompt = ct.cleanText(image_prompt)
-                self.generate_image(image_prompt, filename=imagery.get("image_placeholder_id"))
+                self._generate_image(image_prompt, filename=imagery.get("image_placeholder_id"))
 
 
-        
+    def get_slide_content(self):
+        """
+        Execute all the steps to convert text to slides and generate images.
+        """
+        if self._IsSafeToUse():
+            self._convert_content_to_slides()
+            self._get_image_prompt()
+        return self.slide_content

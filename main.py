@@ -2,6 +2,8 @@ import sys
 from logging_config import get_logger, get_calling_module_name
 
 from documentHandling import ReadDoc
+from gptHandling import handler
+
 
 name = get_calling_module_name()
 log = get_logger(name)
@@ -20,18 +22,20 @@ def execute_all():
     if not pdf_path.lower().endswith('.pdf'):
         raise ValueError("The provided file must be a PDF.")
 
-    # creation_of_slides()
-    # exit(1)
-
     # Initialize the ReadDoc instance
     rd = ReadDoc()
     try:
         conv = rd.extract_all_text_simple(pdf_path)
+        all_slide_content = handler(conv).get_slide_content()
+        # Prepare slides from dictionary
+
+        # Add images for the slides
+
+        # Save the slides to a file
     except Exception as e:
         print(f"Error converting PDF to images: {e}")
         sys.exit(1)
     
 
 if __name__ == "__main__":
-
     execute_all()

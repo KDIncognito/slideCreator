@@ -343,14 +343,12 @@ class gptContext:
                 "disclaimer": "This content is AI-generated and should be reviewed by a human expert for accuracy, completeness, and final presentation design before use."
             }
             
-            The model MUST ensure all `concept_id_link` values refer to `id`s from the `breakdownConcepts` output.
             Include a final "Q&A" or "Thank You" slide if the total count is less than 8.
             """
             user = """
             Generate content for a professional presentation (8-15 slides) based on the following structured concepts.
             Strictly adhere to the provided JSON schema for the entire output.
 
-            Structured Concepts (from breakdownConcepts):
             {text_content}
             """
             response_expected = dict

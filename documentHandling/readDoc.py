@@ -1,16 +1,12 @@
 import fitz  # PyMuPDF
-from PIL import Image
-import io
-import os
-from pathlib import Path
-from typing import List, Dict, Tuple, Union
+
+from typing import List, Dict
 import string
 
 from logging_config import get_logger, get_calling_module_name
+
 name = get_calling_module_name()
 log = get_logger(name)
-log.info("done; ")
-
 
 class ReadDoc:
     def __init__(self):
@@ -18,7 +14,7 @@ class ReadDoc:
         Initialize the PDF content extractor.
         No output directory needed as images are not saved, only their metadata.
         """
-        logging.info("Initialized PDF content extractor (no image output).")
+        log.info("Initialized PDF content extractor (no image output).")
 
     def analyze_page_content(self, page) -> Dict:
         """
@@ -33,7 +29,7 @@ class ReadDoc:
             raster_images = page.get_images()
             vector_drawings = page.get_drawings()
             
-            logging.debug(f"Page analysis results - Text blocks: {len(text)}, Raster Images: {len(raster_images)}, Vector Drawings: {len(vector_drawings)}")
+            log.debug(f"Page analysis results - Text blocks: {len(text)}, Raster Images: {len(raster_images)}, Vector Drawings: {len(vector_drawings)}")
             return {
                 'has_text': len(text) > 0,
                 'has_raster_images': len(raster_images) > 0,
@@ -43,7 +39,7 @@ class ReadDoc:
                 'vector_drawing_count': len(vector_drawings)
             }
         except Exception as e:
-            logging.error(f"Error analyzing page content for page {page.number}: {str(e)}")
+            log.error(f"Error analyzing page content for page {page.number}: {str(e)}")
             return {
                 'has_text': False, 
                 'has_raster_images': False, 
@@ -65,15 +61,15 @@ class ReadDoc:
         try:
             text_blocks = page.get_text("blocks")
             for block in text_blocks:
-                x0, y0, x1, y1, text_content, block_no, block_type = block
+                x0, y0, x1, y1, text_content, block_type = block
                 extracted_text.append({
                     'text': text_content.strip(),
                     'bbox': (x0, y0, x1, y1),
                     'block_type': 'text' if block_type == 0 else 'image' # 0 for text, 1 for image
                 })
-            logging.debug(f"Extracted {len(extracted_text)} text blocks from page {page.number + 1}")
+            log.debug(f"Extracted {len(extracted_text)} text blocks from page {page.number + 1}")
         except Exception as e:
-            logging.error(f"Error extracting text from page {page.number + 1}: {str(e)}")
+            log.error(f"Error extracting text from page {page.number + 1}: {str(e)}")
         return extracted_text
 
     def extract_raster_images_metadata_from_page(self, doc, page) -> List[Dict]:
@@ -100,11 +96,11 @@ class ReadDoc:
                     base_image = doc.extract_image(xref)
                     image_ext = base_image["ext"]
                 except Exception as e:
-                    logging.warning(f"Could not extract raster image xref {xref} from page {page.number + 1} for metadata: {str(e)}")
+                    log.warning(f"Could not extract raster image xref {xref} from page {page.number + 1} for metadata: {str(e)}")
                     continue
 
                 if not image_ext:
-                    logging.warning(f"No image extension found for xref {xref} on page {page.number + 1}, skipping.")
+                    log.warning(f"No image extension found for xref {xref} on page {page.number + 1}, skipping.")
                     continue
 
                 image_title = None
@@ -131,9 +127,9 @@ class ReadDoc:
                     'title': image_title if image_title else f"Raster Image on Page {page.number + 1}, Image {img_index + 1}",
                     'extension': image_ext
                 })
-            logging.debug(f"Extracted {len(extracted_images)} raster images metadata from page {page.number + 1}")
+            log.debug(f"Extracted {len(extracted_images)} raster images metadata from page {page.number + 1}")
         except Exception as e:
-            logging.error(f"Error extracting raster images metadata from page {page.number + 1}: {str(e)}")
+            log.error(f"Error extracting raster images metadata from page {page.number + 1}: {str(e)}")
         return extracted_images
 
     def extract_vector_drawings_metadata_from_page(self, page) -> List[Dict]:
@@ -175,7 +171,7 @@ class ReadDoc:
                     if min_x != float('inf'):
                         bbox = [min_x, min_y, max_x, max_y]
                     else:
-                        logging.warning(f"Could not determine bounding box for drawing {drawing_index + 1} on page {page.number + 1}. Skipping.")
+                        log.warning(f"Could not determine bounding box for drawing {drawing_index + 1} on page {page.number + 1}. Skipping.")
                         continue
 
 
@@ -204,9 +200,9 @@ class ReadDoc:
                     'title': drawing_title if drawing_title else f"Vector Drawing on Page {page.number + 1}, Drawing {drawing_index + 1}",
                     'drawing_elements': drawing_info # Includes all details like colors, lines, fills, etc.
                 })
-            logging.debug(f"Extracted {len(extracted_drawings)} vector drawings metadata from page {page.number + 1}")
+            log.debug(f"Extracted {len(extracted_drawings)} vector drawings metadata from page {page.number + 1}")
         except Exception as e:
-            logging.error(f"Error extracting vector drawings metadata from page {page.number + 1}: {str(e)}")
+            log.error(f"Error extracting vector drawings metadata from page {page.number + 1}: {str(e)}")
         return extracted_drawings
 
     def extract_pdf_content(self, pdf_path: str) -> Dict:
@@ -222,10 +218,10 @@ class ReadDoc:
         self.all_extracted_vector_drawings = []
         
         try:
-            logging.info(f"Starting content extraction of PDF: {pdf_path} (no image files will be saved)")
+            log.info(f"Starting content extraction of PDF: {pdf_path} (no image files will be saved)")
             doc = fitz.open(pdf_path)
             
-            for page_num in range(len(doc)):
+            for page_num, page in enumerate(doc):
                 page = doc[page_num]
                 
                 # Extract text
@@ -241,11 +237,11 @@ class ReadDoc:
                 self.all_extracted_vector_drawings.extend(page_vector_drawings_data)
             
             doc.close()
-            logging.info(f"PDF content extraction completed. Extracted {len(self.all_extracted_text)} text blocks, {len(self.all_extracted_raster_images)} raster images metadata, and {len(self.all_extracted_vector_drawings)} vector drawings metadata.")
+            log.info(f"PDF content extraction completed. Extracted {len(self.all_extracted_text)} text blocks, {len(self.all_extracted_raster_images)} raster images metadata, and {len(self.all_extracted_vector_drawings)} vector drawings metadata.")
             
             
         except Exception as e:
-            logging.error(f"Critical error during PDF content extraction for {pdf_path}: {str(e)}")
+            log.error(f"Critical error during PDF content extraction for {pdf_path}: {str(e)}")
             return {
                 'extracted_text': [],
                 'extracted_raster_images': [],
@@ -263,7 +259,7 @@ class ReadDoc:
         """
         self.all_text_content = []
         try:
-            logging.info(f"Starting simple text extraction from: {pdf_path}")
+            log.info(f"Starting simple text extraction from: {pdf_path}")
             doc = fitz.open(pdf_path)
             for page_num in range(len(doc)):
                 page = doc[page_num]
@@ -277,11 +273,11 @@ class ReadDoc:
                         'page_number': page.number + 1,
                         'text_content': filtered_text
                     })
-                logging.debug(f"Extracted simple text from page {page.number + 1}")
+                log.debug(f"Extracted simple text from page {page.number + 1}")
             doc.close()
-            logging.info(f"Simple text extraction completed for {len(self.all_text_content)} pages.")
+            log.info(f"Simple text extraction completed for {len(self.all_text_content)} pages.")
         except Exception as e:
-            logging.error(f"Error during simple text extraction from {pdf_path}: {str(e)}")
+            log.error(f"Error during simple text extraction from {pdf_path}: {str(e)}")
         return self.all_text_content
 
     
