@@ -1,0 +1,132 @@
+2025-06-27 19:47:49,655 - INFO - Output directory: images
+2025-06-27 19:47:49,655 - INFO - Using existing output directory: images
+2025-06-27 19:47:49,730 - INFO - Starting conversion of PDF: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-06-27 19:47:49,913 - INFO - Processing group 1 with pages [0, 1, 2]
+2025-06-27 19:47:54,260 - INFO - Saving image to: images/group_1.png
+2025-06-27 19:47:54,974 - INFO - Successfully saved image: images/group_1.png
+2025-06-27 19:47:54,974 - INFO - Processing group 2 with pages [3, 4, 5]
+2025-06-27 19:47:59,143 - INFO - Saving image to: images/group_2.png
+2025-06-27 19:48:00,112 - INFO - Successfully saved image: images/group_2.png
+2025-06-27 19:48:00,112 - INFO - Processing group 3 with pages [6, 7, 8]
+2025-06-27 19:48:03,611 - INFO - Saving image to: images/group_3.png
+2025-06-27 19:48:04,320 - INFO - Successfully saved image: images/group_3.png
+2025-06-27 19:48:04,321 - INFO - Processing group 4 with pages [9, 10, 11]
+2025-06-27 19:48:07,657 - INFO - Saving image to: images/group_4.png
+2025-06-27 19:48:08,396 - INFO - Successfully saved image: images/group_4.png
+2025-06-27 19:48:08,396 - INFO - Processing group 5 with pages [12, 13, 14]
+2025-06-27 19:48:11,964 - INFO - Saving image to: images/group_5.png
+2025-06-27 19:48:12,732 - INFO - Successfully saved image: images/group_5.png
+2025-06-27 19:48:12,732 - INFO - Processing group 6 with pages [15, 16]
+2025-06-27 19:48:14,787 - INFO - Saving image to: images/group_6.png
+2025-06-27 19:48:15,215 - INFO - Successfully saved image: images/group_6.png
+2025-06-27 19:48:15,242 - INFO - Conversion completed. Generated 6 images
+2025-06-27 19:59:42,362 - INFO - Output directory: images
+2025-06-27 19:59:42,363 - INFO - Using existing output directory: images
+2025-06-27 19:59:58,698 - INFO - Output directory: images
+2025-06-27 19:59:58,699 - INFO - Using existing output directory: images
+2025-06-27 20:01:45,735 - INFO - Output directory: images
+2025-06-27 20:01:45,736 - INFO - Using existing output directory: images
+2025-06-27 20:03:20,752 - INFO - Output directory: images
+2025-06-27 20:03:20,753 - INFO - Using existing output directory: images
+2025-06-27 20:03:43,860 - INFO - Output directory: images
+2025-06-27 20:03:43,861 - INFO - Using existing output directory: images
+2025-06-27 20:08:37,151 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-27 20:08:37,154 - INFO - Retrying request to /chat/completions in 0.473967 seconds
+2025-06-27 20:08:40,451 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-27 20:08:40,451 - INFO - Retrying request to /chat/completions in 0.819910 seconds
+2025-06-27 20:08:43,871 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-05 15:48:22,560 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:48:22,561 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:48:22,734 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:52:14,426 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:52:14,426 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:52:14,583 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:53:40,018 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:53:40,019 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:53:40,176 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:53:44,600 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 15:56:00,758 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:56:00,758 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:56:00,932 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:56:02,837 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 15:56:33,387 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:56:33,387 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:56:33,545 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:56:40,008 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 15:57:20,136 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:57:20,136 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:57:20,298 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:57:22,093 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 15:58:09,165 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:58:09,165 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:58:09,322 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:58:15,796 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 15:58:38,727 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:58:38,727 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:58:38,887 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:58:40,734 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 15:59:15,002 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 15:59:15,002 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 15:59:15,158 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 15:59:16,984 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:00:17,392 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:00:17,392 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:00:17,549 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:00:19,240 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:01:53,465 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:01:53,465 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:01:53,622 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:01:56,115 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:07:32,920 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:07:32,920 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:07:33,077 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:07:34,949 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:12:52,359 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:12:52,359 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:12:52,516 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:12:54,123 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:14:02,053 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:14:02,053 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:14:02,213 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:14:05,699 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:14:16,859 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:14:16,859 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:14:17,017 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:14:18,602 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:15:29,088 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:15:29,088 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:15:29,244 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:15:31,406 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:16:07,895 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:16:07,895 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:16:08,052 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:16:10,420 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:16:28,371 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:16:28,371 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:16:28,528 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:16:32,230 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:17:36,691 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:17:36,692 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:17:36,850 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:17:38,584 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:18:09,658 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:18:09,658 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:18:09,815 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:18:11,761 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:25:57,672 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:25:57,672 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:25:57,782 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:26:16,862 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-05 16:30:36,650 - INFO - Initialized PDF content extractor (no image output).
+2025-07-05 16:30:36,650 - INFO - Starting simple text extraction from: /Users/bhargavasreekrishnaduttavasanthavada/Documents/explorations/microorganisms-07-00179.pdf
+2025-07-05 16:30:36,760 - INFO - Simple text extraction completed for 17 pages.
+2025-07-05 16:31:19,143 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-06 20:03:10,110 - INFO - done; 
+2025-07-06 20:04:20,098 - INFO - done; 
+2025-07-06 20:07:17,778 - INFO - done; 
+2025-07-06 20:12:13,635 - INFO - done; 
+2025-07-06 20:12:26,852 - INFO - done; 
+2025-07-06 20:12:57,363 - INFO - done; 
+2025-07-06 20:18:07,226 - INFO - done; 
+2025-07-06 20:20:01,837 - INFO - done; 
+2025-07-06 20:20:47,995 - INFO - done; 

@@ -1,0 +1,24 @@
+flowchart TD
+    subgraph Input["Input Processing"]
+        PDF[PDF Document] --> Extract[Extract Text]
+        Extract --> Clean[Clean Text]
+    end
+    
+    subgraph Analysis["Content Analysis"]
+        Clean --> Topics[Topic Modeling]
+        Topics --> Structure[Document Structure]
+        Structure --> Elements[Class Elements]
+    end
+    
+    subgraph GPT["GPT-4 Processing"]
+        Elements --> Format[Format for GPT-4]
+        Format --> Process[Process with GPT-4]
+        Process --> Output[Structured Output]
+    end
+    
+    %% Styling
+    classDef process fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000000
+    classDef group fill:#f5f5f5,stroke:#333,stroke-width:2px,color:#000000
+    
+    class PDF,Extract,Clean,Topics,Structure,Elements,Format,Process,Output process
+    class Input,Analysis,GPT group
