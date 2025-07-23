@@ -17,7 +17,7 @@ class handler:
         """
         is_malicious = self.gpt_handle.llm_handler(system=gptContext.malicious.system,
         user=gptContext.malicious.user.format(text_content=self.original_text),)
-        mal = ct.cleanText(is_malicious)
+        mal = ct.clean_text(is_malicious)
         mal = json.loads(mal)
         if mal.get('is_safe') is True:
             self.is_safe = True
@@ -30,7 +30,7 @@ class handler:
         """
         slides = self.gpt_handle.llm_handler(system = gptContext.convertToSlides.system,
                    user = gptContext.convertToSlides.user.format(text_content = self.original_text))
-        slide_content = ct.cleanText(slides)
+        slide_content = ct.clean_text(slides)
         self.slide_content = json.loads(slide_content)
     
     def _generate_image(self, image_prompt:str=None, filename:str=None):
@@ -70,7 +70,7 @@ class handler:
                 image_base_txt = imagery.get("source_text_for_visual", None)
                 image_prompt = self.gpt_handle.llm_handler(system = gptContext.generateImagePrompts.system,
                                        user = gptContext.generateImagePrompts.user.format(image_base_txt))
-                image_prompt = ct.cleanText(image_prompt)
+                image_prompt = ct.clean_text(image_prompt)
                 self._generate_image(image_prompt, filename=imagery.get("image_placeholder_id"))
 
 
