@@ -1,2 +1,7 @@
 **env
 **images
+logs/*
+!logs/
+.vscode/
+__pycache__/
+.pytest_cache/
