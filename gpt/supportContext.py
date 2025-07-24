@@ -11,8 +11,7 @@ class gptContext:
         Input: Raw text content (string).
         Output: JSON object indicating safety status and detailed findings if unsafe.
         """
-        system = """
-        You are a highly vigilant and experienced cybersecurity expert specializing in textual document analysis.
+        system = """You are a highly vigilant and experienced cybersecurity expert specializing in textual document analysis.
         Your primary directive is to meticulously scan the provided text for any indicators of malicious content,
         security vulnerabilities, or obscured harmful instructions. Be exceptionally thorough.
 
@@ -63,8 +62,7 @@ class gptContext:
         Output: A structured JSON dictionary of concepts with rich metadata,
                 including specific suggestions for visualizations.
         """
-        system = """
-        You are an elite polymath, combining expertise across all scientific disciplines (Physics, Biology, Medicine, Engineering, Mathematics, Computer Science), Humanities (History, Literature, Philosophy), and Arts. Your mission is to thoroughly analyze the provided text content from a PDF document and extract the most critical, digestible, and interconnected concepts. The goal is to structure this information optimally for a professional presentation targeting a diverse, intelligent audience.
+        system = """You are an elite polymath, combining expertise across all scientific disciplines (Physics, Biology, Medicine, Engineering, Mathematics, Computer Science), Humanities (History, Literature, Philosophy), and Arts. Your mission is to thoroughly analyze the provided text content from a PDF document and extract the most critical, digestible, and interconnected concepts. The goal is to structure this information optimally for a professional presentation targeting a diverse, intelligent audience.
 
         For each significant concept identified, you MUST provide the following structured details in a JSON array:
 
@@ -172,8 +170,7 @@ class gptContext:
         Input: A text string that requires an image prompt.
         Output: A list of dictionaries, each containing an image generation prompt and associated metadata, in JSON format.
         """
-        system = """
-        You are an expert AI Prompt Engineer and a Visual Storyteller. Your expertise lies in translating abstract concepts and 
+        system = """You are an expert AI Prompt Engineer and a Visual Storyteller. Your expertise lies in translating abstract concepts and 
         quantitative data into compelling, highly specific, and actionable prompts for advanced text-to-image AI models 
         (like DALL-E 3, Midjourney, or Stable Diffusion). Your goal is to create visuals perfectly suited for professional presentation slides.
 
@@ -221,8 +218,7 @@ class gptContext:
                 (It is assumed image prompts from `generateImagePrompts` will be linked by `concept_id_reference` externally.)
             Output: A structured JSON dictionary representing the entire presentation with slide-by-slide content.
             """
-            system = """
-            You are a world-class Presentation Specialist and Presentation Designer. Your mission is to transform raw, structured concepts into a cohesive, impactful, and visually appealing presentation. You will receive key concepts, some of which are designed to incorporate *newly generated visualizations*.
+            system = """You are a world-class Presentation Specialist and Presentation Designer. Your mission is to transform raw, structured concepts into a cohesive, impactful, and visually appealing presentation. You will receive key concepts, some of which are designed to incorporate *newly generated visualizations*.
 
             Your presentation should tell a clear story, logically progressing from introduction to conclusion.
             Aim for a total of **8-15 slides**, balancing content depth with brevity suitable for a presentation.

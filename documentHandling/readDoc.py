@@ -9,6 +9,11 @@ name = get_calling_module_name()
 log = get_logger(name)
 
 class ReadDoc:
+    """
+    Class for extracting content from PDF documents.
+    This version does not save images but extracts their metadata and associated text.
+    It focuses on text blocks, raster images, and vector drawings.
+    """
     def __init__(self):
         """
         Initialize the PDF content extractor.
