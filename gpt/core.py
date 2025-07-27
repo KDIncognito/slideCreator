@@ -24,6 +24,15 @@ class gptHandler:
         # return completion.choices[0].message.content.strip()
         return completion.choices[0].message.content
 
+    def _llm_vision_call(self, messages):
+        """Handle vision API calls with images."""
+        completion = self.client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages,
+            max_tokens=2000
+        )
+        return completion.choices[0].message.content
+
     def llm_image_call(self, prompt):
         # Call the OpenAI API to generate an image based on the prompt
         try:
@@ -44,7 +53,7 @@ class gptHandler:
             return None
 
     
-    def llm_handler(self, system, user, request_type="text"):
+    def llm_handler(self, system, user, request_type="text", messages=None):
         """
         Handle the LLM call based on the provided keyword arguments.
         This method dynamically constructs the system and user messages based on the class attributes.
@@ -52,5 +61,7 @@ class gptHandler:
         # "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}
         if request_type == "image":
             return self.llm_image_call(user)
+        elif request_type == "vision" and messages:
+            return self._llm_vision_call(messages)
         
         return self._llm_call(system, user)
